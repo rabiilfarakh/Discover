@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id('UserId');
-            $table->string('UserName');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::create('recits', function (Blueprint $table) {
+            $table->id('RecitId');
+            $table->unsignedBigInteger('UserId');
+            $table->foreign('UserId')->references('UserId')->on('users'); 
+            $table->string('RecitName');
+            $table->timestamp('RecitDate')->useCurrent();
+            $table->string('RecitContent');
         });
     }
 
