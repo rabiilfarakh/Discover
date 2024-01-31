@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('RecitName');
             $table->timestamp('RecitDate')->useCurrent();
-            $table->string('RecitContent');
+            $table->text('RecitContent');
            $table->foreignId('DestinationId')->constrained('destinations');
            $table->foreignId('UserId')->constrained('users');
         });
