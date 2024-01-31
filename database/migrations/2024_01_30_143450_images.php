@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id('ImageId');
-            $table->unsignedBigInteger('RecitId');
-            $table->foreign('RecitId')->references('RecitId')->on('recits'); 
+            $table->id();
+            $table->foreignId('RecitId')->constrained('recits'); 
             $table->string('Image');
         });
     }

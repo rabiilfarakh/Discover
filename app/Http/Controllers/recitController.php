@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\recit;
 
-class userController extends Controller
+class recitController extends Controller
 {
     public function index(){
 

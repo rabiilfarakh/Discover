@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('recits', function (Blueprint $table) {
-            $table->id('RecitId');
-            $table->unsignedBigInteger('UserId');
-            $table->foreign('UserId')->references('UserId')->on('users'); 
+            $table->id();
             $table->string('RecitName');
             $table->timestamp('RecitDate')->useCurrent();
             $table->string('RecitContent');
+           $table->foreignId('DestinationId')->constrained('destinations');
+           $table->foreignId('UserId')->constrained('users');
         });
     }
 
