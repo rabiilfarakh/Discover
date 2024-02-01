@@ -7,12 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/blog',[blogController::class,'index']);
-
-// Route::get('/blog',[recitController::class,'index']);
-// Route::get('/blog',[userController::class,'index']);
-// Route::get('/blog/{nom}/{prenom}', function (Request $request) {
-//     dd($request->nom);
-//     return view('blog', ['nom' => $request->nom, 'prenom' => $request->prenom]);
-// });  
+Route::get('/blog',[blogController::class,'index'])->name('blog');
+Route::post('/blog/insert',[recitController::class,'insert'])->name('insert');
+  
 

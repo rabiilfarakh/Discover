@@ -7,8 +7,19 @@ use App\Models\recit;
 
 class recitController extends Controller
 {
-    // public function index(){
-    //     $recits = Recit::orderBy('RecitDate', 'asc')->get();
-    //     return view('blog', compact('recits'));
-    // }
+    public function insert(Request $request){
+        $name = $request->name;
+        $dest = $request->dest;
+        $text = $request->text;
+        $user = 1;
+
+        recit::create([
+            'RecitName' => $name,
+            'DestinationId'=>$dest,
+            'RecitContent' => $text,
+            'UserId' => $user,
+        ]);
+        return redirect()->route('blog');
+    }
+
 }

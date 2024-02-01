@@ -16,10 +16,12 @@ return new class extends Migration
             $table->string('RecitName');
             $table->timestamp('RecitDate')->useCurrent();
             $table->text('RecitContent');
-           $table->foreignId('DestinationId')->constrained('destinations');
-           $table->foreignId('UserId')->constrained('users');
+            $table->foreignId('DestinationId')->nullable()->constrained('destinations');
+            $table->foreignId('UserId')->constrained('users');
+            $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.
