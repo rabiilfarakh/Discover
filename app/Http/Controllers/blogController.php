@@ -14,8 +14,7 @@ class blogController extends Controller
         $recits = recit::all();
         $destinations = destination::all();
         $full = recit::with('user','destination')->get();
-        
 
-        return view('blog',compact('full'));
+        return view('blog',["full"=>$full,"destinations"=>$destinations]);
     }
 }

@@ -65,18 +65,29 @@
    <form action="{{route('insert')}}" method="POST" class="mt-14">
     @csrf
         <div class="mb-4">
-          <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Your Name</label>
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Titre</label>
           <input type="text" id="name" name="name" placeholder="John Doe" required
             class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">
         </div>
-        <div class="mb-4">
+        {{-- <div class="mb-4">
           <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Your Email</label>
           <input type="number" id="email" name="dest" placeholder="john@example.com" required
             class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">
-        </div>
+        </div> --}}
+        <div class="mb-4">
+          <label for="destination" class="block text-gray-700 text-sm font-bold mb-2">Select Destination</label>
+          <select id="destination" name="destination" 
+                  class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+              @foreach($destinations as $destination)
+                  <option value="{{ $destination->id }}">{{ $destination->DestinationName }}</option>
+              @endforeach
+          </select>
+      </div>
+      
+
         <div class="mb-6">
-          <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Your Message</label>
-          <textarea id="message" name="text" rows="4" placeholder="How can we help you?"
+          <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Texte</label>
+          <textarea id="message" name="text" rows="4" placeholder="Votre description"
             class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"></textarea>
         </div>
         <button type="submit"
@@ -112,6 +123,8 @@
                         <span class="text-xs dark:text-gray-400">{{$recit->RecitDate}}</span>
                         <p>{{ \Illuminate\Support\Str::limit($recit->RecitContent, 150,  ' . . .') }}</p>
                     </div>
+                    <input type="hidden" name="user" value="{{$recit->UserId}}">
+                    
                 </a>
                 @endforeach
             </div>

@@ -9,9 +9,9 @@ class recitController extends Controller
 {
     public function insert(Request $request){
         $name = $request->name;
-        $dest = $request->dest;
+        $dest = $request->destination;
         $text = $request->text;
-        $user = 1;
+        $user = 2;
 
         recit::create([
             'RecitName' => $name,
