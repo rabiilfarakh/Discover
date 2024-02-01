@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+
     <title>Document</title>
 </head>
-<body>
+<body class="">
     <header>
         <div class="bg-gray-100 font-sans w-full  m-0">
             <div class="bg-white shadow">
@@ -49,9 +51,48 @@
           </div>
         </div>
     </header>
-    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">DESC</button>
-    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">ASC</button>
-    <section class="dark:bg-gray-800 dark:text-gray-100">
+    {{-- popup --}}
+    <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90vw; width: 400px; z-index: 9999;"
+    class="max-w-md mx-auto p-8 bg-white rounded-md shadow-md">
+   <button id="closePopupBtn" class="absolute flex text-gray-600 hover:text-gray-800 focus:outline-none">
+       <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+           <line x1="18" y1="6" x2="6" y2="18"></line>
+           <line x1="6" y1="6" x2="18" y2="18"></line>
+       </svg>
+   </button>
+
+   <h2 class="text-2xl font-semibold mb-6"></h2>
+   <form action="#" method="POST" class="mt-14">
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required
+            class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required
+            class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Your Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="How can we help you?"
+            class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"></textarea>
+        </div>
+        <button type="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
+            Send Message
+        </button>
+    </form>
+</div>
+{{-- fin popup --}}
+
+    <div class="flex justify-between">
+      <div class="">
+        <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">DESC</button>
+        <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">ASC</button>
+      </div>
+      <button id="openPopupBtn" type="button" class="rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><strong>+</strong></button>
+    </div>
         <div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
             <a rel="noopener noreferrer" href="#" class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-900">
                 <img src="https://source.unsplash.com/random/480x360" alt="" class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500">
@@ -73,11 +114,42 @@
                 </a>
                 @endforeach
             </div>
-            <div class="flex justify-center">
-                <button type="button" class="px-6 py-3 text-sm rounded-md hover:underline dark:bg-gray-900 dark:text-gray-400">Load more posts...</button>
-            </div>
         </div>
     </section>
+    <script>
+      const openPopupBtn = document.getElementById('openPopupBtn');
+      const closePopupBtn = document.getElementById('closePopupBtn');
+      const popup = document.getElementById('popup');
+      const body = document.body;
+  
+      openPopupBtn.addEventListener('click', () => {
+          popup.style.display = 'block';
+          body.classList.add('popup-opened');
+      });
+  
+      closePopupBtn.addEventListener('click', () => {
+          popup.style.display = 'none';
+          body.classList.remove('popup-opened');
+      });
+  </script>
+
+{{-- <style>
+  .popup-closed {
+      transition: opacity 0.5s ease-in-out;
+      opacity: 1;
+  }
+
+  .popup-opened {
+      opacity: 0.5;
+  }
+</style> --}}
+
+  
+    
+
+
+
+
 
 <footer class="bg-gray-50 shadow">
     <div class="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
