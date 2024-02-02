@@ -16,9 +16,27 @@ class blogController extends Controller
         $image = image::all();
         $destinations = destination::all();
         $full = recit::with('user','destination','image')->get();
-
-        // dd($full);
-
         return view('blog',["full"=>$full,"destinations"=>$destinations]);
     }
+
+    public function filterASC(Request $request){
+        $users = User::all();
+        $recits = recit::all();
+        $image = image::all();
+        $destinations = destination::all();
+    
+        $full = recit::with('user', 'destination', 'image')->orderBy('created_at', 'asc')->get();
+        return view('blog', ["full" => $full, "destinations" => $destinations]);
+    }
+
+    public function filterDESC(Request $request){
+        $users = User::all();
+        $recits = recit::all();
+        $image = image::all();
+        $destinations = destination::all();
+    
+        $full = recit::with('user', 'destination', 'image')->orderBy('created_at', 'desc')->get();
+        return view('blog', ["full" => $full, "destinations" => $destinations]);
+    }
+    
 }

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/blog',[blogController::class,'index'])->name('blog');
 Route::post('/blog/recit', [recitController::class, 'index'])->name('recit');
+Route::post('/blog/filterASC', [blogController::class, 'filterASC'])->name('filterASC');
+Route::post('/blog/filterDESC', [blogController::class, 'filterDESC'])->name('filterDESC');
 Route::post('/blog/insert',[recitController::class,'insert'])->name('insert');
 
   
