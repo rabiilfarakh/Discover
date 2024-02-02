@@ -10,8 +10,8 @@ use App\Models\destination;
 
 class blogController extends Controller
 {
-    public function index(Request $request){
-       
+    public function index(Request $request)
+    {
         $users = User::all();
         $recits = recit::all();
         $image = image::all();
@@ -23,10 +23,25 @@ class blogController extends Controller
         $full=match($order){
             "desc"=>$full->oldest("RecitDate"),
             default =>$full->latest("RecitDate")
+
         };
         $full=$full->get();
 
-        return view('blog',["full"=>$full,"destinations"=>$destinations]);
+      
+
+        // Statistiques
+        $totalRecits = $full->count();
+        $totalUsers = $users->count();
+        $totalDestinations = $destinations->count();
+
+        return view('blog', [
+            "full" => $full,
+            "destinations" => $destinations,
+            "totalRecits" => $totalRecits,
+            "totalUsers" => $totalUsers,
+            "totalDestinations" => $totalDestinations,
+        ]);
+    
     }
 
     public function filter(Request $request){

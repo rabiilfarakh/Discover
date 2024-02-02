@@ -51,6 +51,7 @@
           </div>
         </div>
     </header>
+    
     {{-- popup --}}
     <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90vw; width: 400px; z-index: 9999;"
     class="max-w-md mx-auto p-8 bg-white rounded-md shadow-md">
@@ -98,6 +99,11 @@
 
 </div>
 {{-- fin popup --}}
+<div class="flex gap-12 justify-center mt-5">
+  <p class="border-b pb-2">Total des récits : {{ $totalRecits }}</p>
+  <p class="border-b pb-2">Total des utilisateurs : {{ $totalUsers }}</p>
+  <p class="border-b pb-2">Total des destinations : {{ $totalDestinations }}</p>
+</div>
 
     <div class="flex justify-center mt-5">
       <div class="flex justify-center gap-3">
@@ -115,17 +121,17 @@
       <button type="submit" class="ml-20 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><strong>All</strong></button>
     </form>  
       <button id="openPopupBtn" type="button" class="ml-36 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><strong>+</strong></button>
-    <form method="POST" action="/blog/filterDESC">
+    <form method="GET" action="/blog">
       @csrf
-      <button class="ml-36 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+      <button name="order" value="asec" class="ml-36 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
         </svg>      
       </button>
     </form>
-    <form method="POST" action="/blog/filterASC">
+    <form method="GET" action="/blog">
       @csrf
-      <button class="ml-4 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+      <button name="order" value="desc" class="ml-4 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
         </svg>             
