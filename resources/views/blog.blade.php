@@ -114,7 +114,7 @@
     <form method="get" action="/blog">
       <button type="submit" class="ml-12 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><strong>All</strong></button>
     </form>  
-      <button type="button" class="ml-36 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><strong>+</strong></button>
+      <button id="openPopupBtn" type="button" class="ml-36 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><strong>+</strong></button>
     </div>
         <div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
             <a rel="noopener noreferrer" href="#" class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-900">
@@ -128,8 +128,11 @@
             <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($full as $recit)
                 <a rel="noopener noreferrer" href="#" class="border-2 rounded-2xl max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900">
-                    <img class="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://picsum.photos/200/300">
-                    <div class="p-6 space-y-2">
+                  @foreach($recit->image as $img)
+                      <img src="{{ asset('storage/' . $img->Image) }}" alt="" class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500">
+                      @break
+                  @endforeach
+                   <div class="p-6 space-y-2">
                         <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">{{$recit->RecitName}}</h3>
                         <span class="text-xs dark:text-gray-400">{{$recit->RecitDate}}</span>
                         <p>{{ \Illuminate\Support\Str::limit($recit->RecitContent, 150,  ' . . .') }}</p>

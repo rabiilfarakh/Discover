@@ -32,6 +32,6 @@ class Recit extends Model
 
     public function image()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(image::class);
     }
 }

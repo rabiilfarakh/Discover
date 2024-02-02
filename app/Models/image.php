@@ -10,7 +10,7 @@ class image extends Model
     use HasFactory;
 
     public function recit(){
-        return $this->belongsTo(recit::class);
+        return $this->belongsTo(Recit::class);
     }
 }
 
