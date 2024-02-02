@@ -15,3 +15,9 @@ Les diagrammes:
 
 
 
+
+![image](https://github.com/rabiilfarakh/discover/assets/109187438/a5865db9-dad5-44d4-acc3-c703aa0981b5)
+
+
+
+
