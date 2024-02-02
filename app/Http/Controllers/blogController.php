@@ -11,32 +11,44 @@ use App\Models\destination;
 class blogController extends Controller
 {
     public function index(Request $request){
+       
         $users = User::all();
         $recits = recit::all();
         $image = image::all();
         $destinations = destination::all();
-        $full = recit::with('user','destination','image')->get();
+        $order = $request->input('order');
+     
+        $full = recit::with('user','destination','image');
+
+        $full=match($order){
+            "desc"=>$full->oldest("RecitDate"),
+            default =>$full->latest("RecitDate")
+        };
+        $full=$full->get();
+
         return view('blog',["full"=>$full,"destinations"=>$destinations]);
     }
 
-    public function filterASC(Request $request){
+    public function filter(Request $request){
+        dd($request);
         $users = User::all();
         $recits = recit::all();
         $image = image::all();
         $destinations = destination::all();
-    
-        $full = recit::with('user', 'destination', 'image')->orderBy('created_at', 'asc')->get();
-        return view('blog', ["full" => $full, "destinations" => $destinations]);
+
+        $order = $request->input('order');
+
+        if($order == "asc"){
+
+            $full = recit::with('user', 'destination', 'image')->orderBy('created_at', 'asc')->get();
+            return view('blog', ["full" => $full, "destinations" => $destinations]);
+
+        }else if($order == "desc"){
+
+            $full = recit::with('user', 'destination', 'image')->orderBy('created_at', 'desc')->get();
+            return view('blog', ["full" => $full, "destinations" => $destinations]);
+        }
     }
 
-    public function filterDESC(Request $request){
-        $users = User::all();
-        $recits = recit::all();
-        $image = image::all();
-        $destinations = destination::all();
-    
-        $full = recit::with('user', 'destination', 'image')->orderBy('created_at', 'desc')->get();
-        return view('blog', ["full" => $full, "destinations" => $destinations]);
-    }
     
 }
