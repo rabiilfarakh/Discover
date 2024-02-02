@@ -129,7 +129,7 @@
                 @foreach ($full as $recit)
                 <a rel="noopener noreferrer" href="#" class="border-2 rounded-2xl max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900">
                   @foreach($recit->image as $img)
-                      <img src="{{ asset('storage/' . $img->Image) }}" alt="" class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500">
+                      <img src="{{ asset('storage/' . $img->Image) }}" alt="" class="object-cover w-full rounded h-44 dark:bg-gray-500">
                       @break
                   @endforeach
                    <div class="p-6 space-y-2">
