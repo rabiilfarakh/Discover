@@ -4,7 +4,10 @@ lien vers la présentation: https://www.canva.com/design/DAF7oi_aELc/eUd_zqw6mma
 
 Les diagrammes: 
 
-![image](https://github.com/rabiilfarakh/discover/assets/109187438/c4251bac-edfb-45d0-9d66-2e4285d853e7)
+
+
+![image](https://github.com/rabiilfarakh/discover/assets/109187438/25afab02-8d5e-49b4-af49-780fba73e53b)
+
 
 
 
