@@ -33,7 +33,6 @@ class blogController extends Controller
         $totalRecits = $full->count();
         $totalUsers = $users->count();
         $totalDestinations = $destinations->count();
-
         return view('blog', [
             "full" => $full,
             "destinations" => $destinations,
@@ -43,6 +42,7 @@ class blogController extends Controller
         ]);
     
     }
+    
 
     public function filter(Request $request){
         dd($request);
