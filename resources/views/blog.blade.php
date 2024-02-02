@@ -51,6 +51,7 @@
           </div>
         </div>
     </header>
+    
     {{-- popup --}}
     <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90vw; width: 400px; z-index: 9999;"
     class="max-w-md mx-auto p-8 bg-white rounded-md shadow-md">
@@ -98,6 +99,11 @@
 
 </div>
 {{-- fin popup --}}
+<div class="flex gap-12 justify-center mt-5">
+  <p class="border-b pb-2">Total des récits : {{ $totalRecits }}</p>
+  <p class="border-b pb-2">Total des utilisateurs : {{ $totalUsers }}</p>
+  <p class="border-b pb-2">Total des destinations : {{ $totalDestinations }}</p>
+</div>
 
     <div class="flex justify-center mt-5">
       <div class="flex justify-center gap-3">
