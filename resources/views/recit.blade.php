@@ -102,8 +102,8 @@
     <div class="flex justify-center mt-5">
       <div class="flex justify-center gap-3">
         @foreach($destinations as $destination)
-        <form action="/blog/recit" method="POST">
-          @csrf
+        <form action="{{ route('recit') }}" method="POST">
+            @csrf
           <button type="submit" name="destination" value="{{ $destination->id }}"
             class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
             {{ $destination->DestinationName }}
@@ -124,7 +124,7 @@
                 </div>
             </a>
             <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($full as $recit)
+                @foreach ($recits as $recit)
                 <a rel="noopener noreferrer" href="#" class="border-2 rounded-2xl max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900">
                     <img class="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://picsum.photos/200/300">
                     <div class="p-6 space-y-2">

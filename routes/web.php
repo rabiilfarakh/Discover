@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/blog',[blogController::class,'index'])->name('blog');
-// Route::get('/blog/show',[destinationController::class,'showForm'])->name('show');
+Route::post('/blog/recit', [recitController::class, 'index'])->name('recit');
 Route::post('/blog/insert',[recitController::class,'insert'])->name('insert');
+
   
 

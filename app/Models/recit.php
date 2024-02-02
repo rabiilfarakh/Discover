@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Recit extends Model
 {
     use HasFactory;
+    protected $with = ["user", "destination"];
+
 
     protected $fillable = [
         'RecitName',

@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Recit;
+use App\Models\Destination;
 use Illuminate\Http\Request;
-use App\Models\destination;
 
 class destinationController extends Controller
 {
-    public function showForm()
-{
     //
-}
-
 }

@@ -13,4 +13,5 @@ class Destination extends Model
     {
         return $this->hasMany(recit::class, 'DestinationId');
     }
+
 }
