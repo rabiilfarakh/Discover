@@ -111,7 +111,9 @@
         </form>
         @endforeach
     </div>
-    
+    <form method="get" action="/blog">
+        <button type="submit" class="ml-12 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><strong>All</strong></button>
+      </form>  
       <button id="openPopupBtn" type="button" class="ml-36 rounded-3xl text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><strong>+</strong></button>
     </div>
         <div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
